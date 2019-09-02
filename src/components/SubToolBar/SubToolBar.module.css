@@ -1,0 +1,20 @@
+.main {
+    width: 100%;
+    background-color: #ffed00;
+}
+
+.toolbar {
+    width: 50%;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #444;
+}
+
+.toolbar a {
+    color: #555;
+    width: 20%;
+    font-weight: bold;
+}

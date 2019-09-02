@@ -1,0 +1,21 @@
+.stack {
+    width: 100%;  
+    /* margin-left: 2.5%; */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.main {
+    width: 40%;
+    margin: 20px 5%;
+    float: left;
+}
+.heading {
+    float: left;
+    font-weight: 300;
+    margin-left: 10px;
+    font-size: 130%;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
