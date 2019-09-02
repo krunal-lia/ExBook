@@ -14,7 +14,14 @@ const bookDisplay = (props) => {
 
     return (
         <div className={styles.book}>
-            <img src={books[parseInt(props.book) - 1]} alt="book cover" className={styles.img}/>
+            <div className={styles.bookInner}>
+                <div className={styles.bookFront}>
+                     <img src={books[parseInt(props.book) - 1]} alt="book cover" className={styles.img}/>
+                </div>
+                <div className={styles.bookBack}>
+                    <h1>asd</h1>
+                </div>
+            </div>
         </div>
     )
 }
