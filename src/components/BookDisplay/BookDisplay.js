@@ -19,7 +19,9 @@ const bookDisplay = (props) => {
                      <img src={books[parseInt(props.book) - 1]} alt="book cover" className={styles.img}/>
                 </div>
                 <div className={styles.bookBack}>
-                    <h1>asd</h1>
+                    <p>Book Original Price: 190</p>
+                    <p>Our Selling Price: 85</p>
+                    <p>Condition: Good</p>
                 </div>
             </div>
         </div>
