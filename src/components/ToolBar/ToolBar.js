@@ -2,19 +2,24 @@ import React from "react";
 
 
 import styles from "./ToolBar.module.css";
-import Logo from "../../UI/Logo/Logo";
+import Logo from "../UI/Logo/Logo";
 import { Link } from "react-router-dom";
-
+import Button from '../UI/Button/Button';
+import firebase from '../firebase/firebase.app';
 
 function Toolbar(props)  {
 
     let user = null;
     if(props.isLoggedin) {
-        user = <Link>Hi {props.userName}</Link>
+        user = <Link>Welcome {props.userName}</Link>
     } else {
-        user = <Link>Login</Link>
+        user = <Link to="/login">Login</Link>
     }
 
+    function logOut() {
+        firebase.auth().signOut();
+        window.location.reload();
+    }
     return (
         <div className={styles.main}>
             <Link to="/"> <Logo /> </Link>
@@ -38,6 +43,7 @@ function Toolbar(props)  {
                     </i>
                     Cart
                 </Link>
+                { props.isLoggedin ? <a className={styles.logout} href="#" onClick={()=> logOut()}>Logout</a> : null }
            </div>
 
            
