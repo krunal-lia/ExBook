@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ExBook/static/css/main.a22f1838.chunk.css",
+    "main.js": "/ExBook/static/js/main.d84ee35e.chunk.js",
+    "main.js.map": "/ExBook/static/js/main.d84ee35e.chunk.js.map",
+    "runtime~main.js": "/ExBook/static/js/runtime~main.c23d08bd.js",
+    "runtime~main.js.map": "/ExBook/static/js/runtime~main.c23d08bd.js.map",
+    "static/js/2.cc46b07f.chunk.js": "/ExBook/static/js/2.cc46b07f.chunk.js",
+    "static/js/2.cc46b07f.chunk.js.map": "/ExBook/static/js/2.cc46b07f.chunk.js.map",
+    "index.html": "/ExBook/index.html",
+    "precache-manifest.6c8ae57982d1accf7924347d071c4d5d.js": "/ExBook/precache-manifest.6c8ae57982d1accf7924347d071c4d5d.js",
+    "service-worker.js": "/ExBook/service-worker.js",
+    "static/css/main.a22f1838.chunk.css.map": "/ExBook/static/css/main.a22f1838.chunk.css.map",
+    "static/media/book1.jpg": "/ExBook/static/media/book1.6c50ffa2.jpg",
+    "static/media/book2.jpg": "/ExBook/static/media/book2.e6fe8587.jpg",
+    "static/media/book3.jpg": "/ExBook/static/media/book3.56c77709.jpg",
+    "static/media/book5.jpg": "/ExBook/static/media/book5.ecceada9.jpg",
+    "static/media/book6.jpg": "/ExBook/static/media/book6.0707f954.jpg"
+  }
+}
