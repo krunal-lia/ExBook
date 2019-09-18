@@ -6,7 +6,7 @@ import classes from './Signup.module.css';
 // import axios from '../../../axios-orders';
 import Input from '../UI/Input/Input';
 import { Link , withRouter } from 'react-router-dom';
-import firebase from '../firebase/firebase.app';
+import firebase, { database } from '../firebase/firebase.app';
 
 class Signup extends Component {
     state = {
@@ -51,15 +51,18 @@ class Signup extends Component {
                 valid: false,
                 touched: false
             },
-            confirmPassword: {
+            phoneNumber: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'password',
-                    placeholder: 'Confirm Password'
+                    type: 'text',
+                    placeholder: 'Enter your phone number'
                 },
                 value: '',
                 validation: {
                     required: true,
+                    minLength: 10,
+                    maxLength: 10,
+                    isNumeric: true
                 },
                 valid: false,
                 touched: false
@@ -81,7 +84,7 @@ class Signup extends Component {
         }).then((user)=>{
             console.log(user);
             var user = firebase.auth().currentUser;
-
+            
             user.updateProfile({
             displayName: this.state.orderForm.name.value
             }).then(function() {
@@ -89,6 +92,13 @@ class Signup extends Component {
             }).catch(function(error) {
                
             });
+            console.log("Database hit!")
+            let userObj = {
+                displayName: this.state.orderForm.name.value,
+                phoneNumber: this.state.orderForm.phoneNumber.value
+            } 
+            console.log(userObj);
+            database.ref(`users/${user.uid}`).set(userObj);
             this.setState({loading: false});
         })
         .catch((error) => {

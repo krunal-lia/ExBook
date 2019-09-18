@@ -1,9 +1,8 @@
 import React from "react";
 
-
 import styles from "./ToolBar.module.css";
 import Logo from "../UI/Logo/Logo";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Button from '../UI/Button/Button';
 import firebase from '../firebase/firebase.app';
 
@@ -19,10 +18,17 @@ function Toolbar(props)  {
     function logOut() {
         firebase.auth().signOut();
         window.location.reload();
+        props.history.push("/");
     }
+
+    function goToHome() {
+        console.log(props.history);
+         props.history.push("/");
+    }
+    
     return (
         <div className={styles.main}>
-            <Link to="/"> <Logo /> </Link>
+            <a onClick={goToHome}> <Logo /> </a>
 
             <div className={styles.searchDiv}>
                 <Link><i className={styles.searchIcon + " material-icons"}>
@@ -51,4 +57,4 @@ function Toolbar(props)  {
     )
 }
 
-export default Toolbar;
+export default withRouter(Toolbar);

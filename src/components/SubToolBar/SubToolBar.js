@@ -8,7 +8,7 @@ const subtoolbar = () => {
             <div className={styles.toolbar}>
                 <Link>Categories</Link>
                 <Link>New Releases</Link>
-                <Link>Sell</Link>
+                <Link to="/sell">Sell</Link>
                 <Link>Donate</Link>
             </div>
         </div>

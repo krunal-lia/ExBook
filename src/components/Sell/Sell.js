@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 
 import Button from '../UI/Button/Button';
 import Spinner from '../UI/Spinner/Spinner'
-import classes from './Signup.module.css';
+import classes from './Sell.module.css';
 // import axios from '../../../axios-orders';
 import Input from '../UI/Input/Input';
+import { withRouter } from 'react-router-dom';
+import { database  } from '../firebase/firebase.app';
 
 class Signup extends Component {
     state = {
         orderForm: {
-            name: {
+            bookName: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -22,11 +24,24 @@ class Signup extends Component {
                 valid: false,
                 touched: false
             },
-            street: {
+            description: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Street'
+                    placeholder: 'Enter description'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false,
+                touched: false
+            },
+            isbn: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Enter ISBN'
                 },
                 value: '',
                 validation: {
@@ -35,61 +50,47 @@ class Signup extends Component {
                 valid: false,
                 touched: false
             },
-            zipCode: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'ZIP Code'
-                },
-                value: '',
-                validation: {
-                    required: true,
-                    minLength: 5,
-                    maxLength: 5,
-                    isNumeric: true
-                },
-                valid: false,
-                touched: false
-            },
-            country: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Country'
-                },
-                value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
-            },
-            email: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'email',
-                    placeholder: 'Your E-Mail'
-                },
-                value: '',
-                validation: {
-                    required: true,
-                    isEmail: true
-                },
-                valid: false,
-                touched: false
-            },
-            deliveryMethod: {
+            condition: {
                 elementType: 'select',
                 elementConfig: {
                     options: [
-                        {value: 'fastest', displayValue: 'Fastest'},
-                        {value: 'cheapest', displayValue: 'Cheapest'}
+                        {value: 'good', displayValue: 'Condition: Good'},
+                        {value: 'Bad', displayValue: 'Condition: Bad'},
+                        {value: 'average', displayValue: 'Condition: Average'}
                     ]
                 },
                 value: '',
                 validation: {},
                 valid: true
-            }
+            },
+            originalPrice: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Enter MRP of Book'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    isNumeric: true
+                },
+                valid: false,
+                touched: false
+            },
+            sellingPrice: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Enter selling price'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    isNumeric: true
+                },
+                valid: false,
+                touched: false
+            },
         },
         formIsValid: false,
         loading: false
@@ -98,23 +99,24 @@ class Signup extends Component {
     orderHandler = ( event ) => {
         event.preventDefault();
         this.setState( { loading: true } );
-        const formData = {};
-        for (let formElementIdentifier in this.state.orderForm) {
-            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
-        }
-        const order = {
-            ingredients: this.props.ingredients,
-            price: this.props.price,
-            orderData: formData
-        }
-        // axios.post( '/orders.json', order )
-        //     .then( response => {
-        //         this.setState( { loading: false } );
-        //         this.props.history.push( '/' );
-        //     } )
-        //     .catch( error => {
-        //         this.setState( { loading: false } );
-        //     } );
+        database.ref(`books`).once("value", snapshot => {
+
+
+            if(snapshot.val()) {
+                let books =  snapshot.val()
+                let book = {
+                    "bookName": this.state.orderForm.bookName.value,
+                    "sellingPrice": this.state.orderForm.sellingPrice.value,
+                    "originalPrice": this.state.orderForm.originalPrice.value,
+                    "condition": this.state.orderForm.condition.value,
+                    "description": this.state.orderForm.description.value,
+                    "isbn": this.state.orderForm.isbn.value
+                }
+                books.unshift(book);
+                database.ref(`books`).set(books);
+                this.props.history.push("/");
+            }
+        });    
     }
 
     checkValidity(value, rules) {
@@ -136,7 +138,7 @@ class Signup extends Component {
         }
 
         if (rules.isEmail) {
-            const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+            const pattern = /[a-z0-9!#$%&'*+    /=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
             isValid = pattern.test(value) && isValid
         }
 
@@ -188,7 +190,7 @@ class Signup extends Component {
                         touched={formElement.config.touched}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
-                <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
+                <Button btnType="Success" disabled={!this.state.formIsValid}>SUBMIT</Button>
             </form>
         );
         if ( this.state.loading ) {
@@ -197,11 +199,11 @@ class Signup extends Component {
         console.log(classes);
         return (
             <div className={classes.Signup}>
-                <h4>Enter your Contact Data</h4>
+                <h4>Sell your unused book</h4>
                 {form}
             </div>
         );
     }
 }
 
-export default Signup;
+export default withRouter(Signup);
