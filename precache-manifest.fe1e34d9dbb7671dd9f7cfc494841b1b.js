@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2190d3dc0543e62525adb83e9b32d852",
+    "revision": "9b1f28cd74fe4280ceabe1ee9bb60425",
     "url": "/ExBook/index.html"
   },
   {
-    "revision": "666911a0737de30070ba",
-    "url": "/ExBook/static/css/main.afa84119.chunk.css"
+    "revision": "45006c68cbb08b8ea947",
+    "url": "/ExBook/static/css/main.26f59180.chunk.css"
   },
   {
-    "revision": "52c73daaf856137d05eb",
-    "url": "/ExBook/static/js/2.a5220f68.chunk.js"
+    "revision": "a79930225533ccd93e85",
+    "url": "/ExBook/static/js/2.482433a5.chunk.js"
   },
   {
-    "revision": "666911a0737de30070ba",
-    "url": "/ExBook/static/js/main.2d934113.chunk.js"
+    "revision": "45006c68cbb08b8ea947",
+    "url": "/ExBook/static/js/main.d8a6d26b.chunk.js"
   },
   {
     "revision": "09006aebc06624212aab",
