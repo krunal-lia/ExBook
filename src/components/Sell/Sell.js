@@ -15,7 +15,7 @@ class Signup extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Your Name'
+                    placeholder: 'Enter Book Name'
                 },
                 value: '',
                 validation: {
@@ -63,6 +63,32 @@ class Signup extends Component {
                 validation: {},
                 valid: true
             },
+            author: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Enter Author'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false,
+                touched: false
+            },
+            category: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Enter Category'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false,
+                touched: false
+            },
             originalPrice: {
                 elementType: 'input',
                 elementConfig: {
@@ -90,7 +116,7 @@ class Signup extends Component {
                 },
                 valid: false,
                 touched: false
-            },
+            }
         },
         formIsValid: false,
         loading: false
@@ -110,7 +136,9 @@ class Signup extends Component {
                     "originalPrice": this.state.orderForm.originalPrice.value,
                     "condition": this.state.orderForm.condition.value,
                     "description": this.state.orderForm.description.value,
-                    "isbn": this.state.orderForm.isbn.value
+                    "isbn": this.state.orderForm.isbn.value,
+                    "category": this.state.orderForm.category.value,
+                    "author": this.state.orderForm.author.value
                 }
                 books.unshift(book);
                 database.ref(`books`).set(books);
