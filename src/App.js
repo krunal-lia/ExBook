@@ -9,6 +9,8 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import firebase, { database } from './components/firebase/firebase.app';
 import Spinner from './components/UI/Spinner/Spinner';
 import Sell from './components/Sell/Sell';
+import FullBookDisplay from './components/FullBookDisplay/FullBookDisplay';
+
 
 class App extends Component {
 
@@ -84,6 +86,9 @@ class App extends Component {
               {/* <Route
               path="/books"
               component={AllBooks}></Route> */}
+              <Route
+              path="/book/:id"
+              component={FullBookDisplay}></Route>
               <Route
                path="/signup"
               component={Signup}></Route>
