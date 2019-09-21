@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9b1f28cd74fe4280ceabe1ee9bb60425",
+    "revision": "ea4a05516d3a6416f974b7b495301663",
     "url": "/ExBook/index.html"
   },
   {
-    "revision": "45006c68cbb08b8ea947",
-    "url": "/ExBook/static/css/main.26f59180.chunk.css"
+    "revision": "8d1a0c1c6e267c23f994",
+    "url": "/ExBook/static/css/main.0844649c.chunk.css"
   },
   {
-    "revision": "a79930225533ccd93e85",
-    "url": "/ExBook/static/js/2.482433a5.chunk.js"
+    "revision": "fd95f8b565ecc85aad42",
+    "url": "/ExBook/static/js/2.282bda8b.chunk.js"
   },
   {
-    "revision": "45006c68cbb08b8ea947",
-    "url": "/ExBook/static/js/main.d8a6d26b.chunk.js"
+    "revision": "8d1a0c1c6e267c23f994",
+    "url": "/ExBook/static/js/main.d5911467.chunk.js"
   },
   {
     "revision": "09006aebc06624212aab",
@@ -62,10 +62,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ecceada92dcf1733280a71348cc64ff6",
     "url": "/ExBook/static/media/book5.ecceada9.jpg"
-  },
-  {
-    "revision": "0707f954d2e40601228b5a0f3167a46d",
-    "url": "/ExBook/static/media/book6.0707f954.jpg"
   },
   {
     "revision": "4bad6049648647cd1812e561638f3017",
