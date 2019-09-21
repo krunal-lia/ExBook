@@ -9,7 +9,7 @@ const subtoolbar = () => {
                 <Link>Categories</Link>
                 <Link>New Releases</Link>
                 <Link to="/sell">Sell</Link>
-                <Link>Donate</Link>
+                <Link to="/donate">Donate</Link>
             </div>
         </div>
     )

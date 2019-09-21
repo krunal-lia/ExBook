@@ -103,20 +103,6 @@ class Signup extends Component {
                 },
                 valid: false,
                 touched: false
-            },
-            sellingPrice: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Enter selling price'
-                },
-                value: '',
-                validation: {
-                    required: true,
-                    isNumeric: true
-                },
-                valid: false,
-                touched: false
             }
         },
         formIsValid: false,
@@ -143,7 +129,7 @@ class Signup extends Component {
                 }).then(() => {
                     let book = {
                         "bookName": this.state.orderForm.bookName.value,
-                        "sellingPrice": this.state.orderForm.sellingPrice.value,
+                        "sellingPrice": "Donated",
                         "originalPrice": this.state.orderForm.originalPrice.value,
                         "condition": this.state.orderForm.condition.value,
                         "description": this.state.orderForm.description.value,
@@ -244,7 +230,7 @@ class Signup extends Component {
         console.log(classes);
         return (
             <div className={classes.Signup}>
-                <h4>Sell your unused book</h4>
+                <h4>You are doing a good deed!</h4>
                 {form}
             </div>
         );

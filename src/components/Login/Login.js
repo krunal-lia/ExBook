@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Button from '../UI/Button/Button';
 import Spinner from '../UI/Spinner/Spinner'
 import classes from './Login.module.css';
-// import axios from '../../../axios-orders';
 import Input from '../UI/Input/Input';
 import { Link, withRouter } from 'react-router-dom';
 import firebase from '../firebase/firebase.app';

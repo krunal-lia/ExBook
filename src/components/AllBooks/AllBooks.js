@@ -14,7 +14,7 @@ class AllBooks extends React.Component {
 
     componentDidMount() {
 
-        database.ref(`books`).set(null);
+      //  database.ref(`books`).set(null);
         database.ref(`books`).once("value", snapshot => {
         
           if(snapshot.val()) {

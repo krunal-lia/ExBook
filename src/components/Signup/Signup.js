@@ -86,7 +86,8 @@ class Signup extends Component {
             var user = firebase.auth().currentUser;
             
             user.updateProfile({
-            displayName: this.state.orderForm.name.value
+            displayName: this.state.orderForm.name.value,
+            phoneNumber: this.state.orderForm.phoneNumber.value
             }).then(function() {
                 console.log("Successful");
             }).catch(function(error) {
@@ -95,7 +96,7 @@ class Signup extends Component {
             console.log("Database hit!")
             let userObj = {
                 displayName: this.state.orderForm.name.value,
-                phoneNumber: this.state.orderForm.phoneNumber.value
+                email: this.state.orderForm.email.value
             } 
             console.log(userObj);
             database.ref(`users/${user.uid}`).set(userObj);

@@ -9,6 +9,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import firebase, { database } from './components/firebase/firebase.app';
 import Spinner from './components/UI/Spinner/Spinner';
 import Sell from './components/Sell/Sell';
+import Donate from './components/Donate/Donate';
 import FullBookDisplay from './components/FullBookDisplay/FullBookDisplay';
 
 
@@ -95,6 +96,9 @@ class App extends Component {
               <Route
                path="/sell"
               component={this.state.isLoggedin ? Sell : Login}></Route>
+               <Route
+               path="/donate"
+              component={this.state.isLoggedin ? Donate : Login}></Route>
               <Route path="/" 
               render={ (props) => this.state.bookLoading ? <Spinner/> : <AllBooks {...props}/>}></Route>
           </Switch>

@@ -20,7 +20,7 @@ const input = ( props ) => {
             break;
         case ( 'textarea' ):
             inputElement = <textarea
-                className={inputClasses.join(' ')}
+                className={inputClasses.join(' ') + " " + classes.TextArea}
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed} />;

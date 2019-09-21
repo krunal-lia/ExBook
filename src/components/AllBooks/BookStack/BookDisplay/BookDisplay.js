@@ -8,7 +8,6 @@ import book2 from '../../../../resources/book2.jpg';
 import book3 from '../../../../resources/book3.jpg';
 import book4 from '../../../../resources/book4.jpg';
 import book5 from '../../../../resources/book5.jpg';
-import book6 from '../../../../resources/book6.jpg';
 import book7 from '../../../../resources/book7.jpg';
 import book8 from '../../../../resources/book8.jpg';
 import book9 from '../../../../resources/book9.jpg';
@@ -22,7 +21,7 @@ import book16 from '../../../../resources/book16.jpg';
 
 import Button from '../../../UI/Button/Button';
 
-const books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14, book15, book16];
+const books = [book1, book2, book3, book4, book5, book7, book8, book9, book10, book11, book12, book13, book14, book15, book16];
 
 const bookDisplay = (props) => {
 
@@ -32,13 +31,10 @@ const bookDisplay = (props) => {
             <div className={styles.bookInner}>
                 <div className={styles.bookFront}>
                     { props.book ? 
-                     <img src={books[Math.floor(Math.random() * 16)]} alt="book cover" className={styles.img}/> : null}
+                     <img src={books[Math.floor(Math.random() * 15)]} alt="book cover" className={styles.img}/> : null}
                 </div>
                 <div className={styles.bookBack}>
-                    <p>Book Original Price: {props.book.originalPrice}</p>
-                    <p>Our Selling Price: {props.book.sellingPrice}</p>
-                    <p>Condition: {props.book.condition}</p>
-                    <Button btnType="Success"><Link to={"/book/" + props.book.index}>Proceed</Link></Button>
+                    <button className={styles.button}><Link to={"/book/" + props.book.index}>Proceed</Link></button>
                 </div>
 
               
