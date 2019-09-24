@@ -45,9 +45,9 @@ function Toolbar(props)  {
                 <Link className={styles.cart}>
                    
                     <i className={styles.cartIcon + " material-icons"}>
-                        shopping_cart
+                        favorite
                     </i>
-                    Cart
+                    Wishlist
                 </Link>
                 { props.isLoggedin ? <a className={styles.logout} href="#" onClick={()=> logOut()}>Logout</a> : null }
            </div>

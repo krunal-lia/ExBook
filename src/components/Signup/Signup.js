@@ -96,7 +96,8 @@ class Signup extends Component {
             console.log("Database hit!")
             let userObj = {
                 displayName: this.state.orderForm.name.value,
-                email: this.state.orderForm.email.value
+                email: this.state.orderForm.email.value,
+                phoneNumber: this.state.orderForm.phoneNumber.value
             } 
             console.log(userObj);
             database.ref(`users/${user.uid}`).set(userObj);
