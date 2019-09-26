@@ -3,7 +3,7 @@ import React from 'react';
 import BookStack from './BookStack/BookStack';
 import Spinner from '../UI/Spinner/Spinner';
 import { database } from '../firebase/firebase.app';
-
+import axios from 'axios';
 
 class AllBooks extends React.Component {
 
@@ -14,25 +14,40 @@ class AllBooks extends React.Component {
 
     componentDidMount() {
 
-      //  database.ref(`books`).set(null);
-        database.ref(`books`).once("value", snapshot => {
+    //   //  database.ref(`books`).set(null);
+    //     database.ref(`books`).once("value", snapshot => {
         
-          if(snapshot.val()) {
-              //console.log(snapshot.val());
-              let books = snapshot.val();
-              for(let i = 0; i < books.length; i++) {
-                  books[i]["index"] = i;
-              }
-              console.log(books);  
-              this.setState({
-                books: books,
-                loading: false
-              }, () => {
-                 console.log("State set!!")
-                 console.log(this.state.books);
-              })
-          }
-        });
+    //       if(snapshot.val()) {
+    //           //console.log(snapshot.val());
+            //   let books = snapshot.val();
+            //   for(let i = 0; i < books.length; i++) {
+            //       books[i]["index"] = i;
+            //   }
+            //   console.log(books);  
+            //   this.setState({
+            //     books: books,
+            //     loading: false
+            //   }, () => {
+            //      console.log("State set!!")
+            //      console.log(this.state.books);
+            //   })
+    //       }
+    //     });
+
+        axios.get('http://exbook-wd.herokuapp.com/books/').then(response => {
+            console.log(response);
+            let books = response.data;
+           
+            this.setState({
+              books: books,
+              loading: false
+            }, () => {
+               console.log("State set!!")
+               console.log(this.state.books);
+            })
+        }).catch(error => {
+            console.log(error);
+        })
     }
   
     

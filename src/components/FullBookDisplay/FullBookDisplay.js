@@ -13,16 +13,30 @@ class FullBookDisplay extends React.Component {
      }
 
     componentDidMount() {
-        database.ref(`books/${this.props.match.params.id}`).once("value", snapshot => {
-            if(snapshot.val()) {
-                let book = snapshot.val();
-                console.log(book);
-                this.setState({
-                    book: book
-                })
-            } else {
-                alert("Could not fetch!");
-            }
+        // database.ref(`books/${this.props.match.params.id}`).once("value", snapshot => {
+        //     if(snapshot.val()) {
+        //         let book = snapshot.val();
+        //         console.log(book);
+        //         this.setState({
+        //             book: book
+        //         })
+        //     } else {
+        //         alert("Could not fetch!");
+        //     }
+        // })
+
+        axios.get(`http://exbook-wd.herokuapp.com/books/${this.props.match.params.id}`).then(response => {
+            console.log(response);
+            let book = response.data;
+           
+            this.setState({
+              book: book
+            }, () => {
+               console.log("State set!!")
+               console.log(this.state.books);
+            })
+        }).catch(error => {
+            console.log(error);
         })
     }
 
@@ -84,7 +98,8 @@ class FullBookDisplay extends React.Component {
             <div className={styles.main}>
                 <div className={styles.leftDiv}>
                     <img src={bookImg} alt="book cover" className={styles.img}/>
-                    <h4 className={styles.category}>Tags:</h4>
+                    <h
+                    4 className={styles.category}>Tags:</h4>
                     <p>Action, Crime, Thriller</p>
                 </div>
                 <div className={styles.rightDiv}>

@@ -12,7 +12,6 @@ import Sell from './components/Sell/Sell';
 import Donate from './components/Donate/Donate';
 import FullBookDisplay from './components/FullBookDisplay/FullBookDisplay';
 
-
 class App extends Component {
 
 

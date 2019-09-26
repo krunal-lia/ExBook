@@ -34,7 +34,7 @@ const bookDisplay = (props) => {
                      <img src={books[Math.floor(Math.random() * 15)]} alt="book cover" className={styles.img}/> : null}
                 </div>
                 <div className={styles.bookBack}>
-                    <button className={styles.button}><Link to={"/book/" + props.book.index}>Proceed</Link></button>
+                    <button className={styles.button}><Link to={"/book/" + props.book.id}>Proceed</Link></button>
                 </div>
 
               
